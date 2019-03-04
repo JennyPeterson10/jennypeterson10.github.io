@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>Pie Time | Pizza</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta content="width=device-width,initial-scale=1.0" class="viewport">
+        <link rel="stylesheet" href="./css/pizza_style.css">
+	</head>
+	<body>
+        <h1>Pie Time</h1>
+        <h4>Serving the Portland Area since 2019</h4>
+        <img src="./img/pizza.jpg">
+        <div class="menu">
+            <h2>Design your pizza from the options below</h2>
+            <form id="form">
+                <div class="selections">
+                    <h3>Size</h3>
+                    <input type="radio" class="size" name="Size" value="Personal" onchange="getSize(); total()">Personal Pizza<br>
+                    <input type="radio" class="size" name="Size" value="Medium" checked onchange="getSize(); total()">Medium Pizza<br>
+                    <input type="radio" class="size" name="Size" value="Large" onchange="getSize(); total()">Large Pizza<br>
+                    <input type="radio" class="size" name="Size" value="Extra Large" onchange="getSize(); total()">Extra Large Pizza<br>
+                </div>
+                <div class="selections">
+                    <h3>Crust</h3>
+                    <input type="radio" class="crust" name="Crust" value="Plain" checked onchange="getCrust(); total()">Plain Crust<br>
+                    <input type="radio" class="crust" name="Crust" value="Garlic Butter" onchange="getCrust(); total()">Garlic Butter Crust<br>
+                    <input type="radio" class="crust" name="Crust" value="Cheese Stuffed" onchange="getCrust(); total()">Cheese Stuffed Crust<br>
+                    <input type="radio" class="crust" name="Crust" value="Spicy" onchange="getCrust(); total()">Spicy Crust<br>
+                    <input type="radio" class="crust" name="Crust" value="House Special" onchange="getCrust(); total()">House Special Crust<br>
+                </div>
+                <div class="selections">
+                    <h3>Sauce</h3>
+                    <input type="radio" class="sauce" name="Sauce" value="Marinara" checked onchange="getSauce(); total()">Marinara Sauce<br>
+                    <input type="radio" class="sauce" name="Sauce" value="White" onchange="getSauce(); total()">White Sauce<br>
+                    <input type="radio" class="sauce" name="Sauce" value="Barbeque" onchange="getSauce(); total()">Barbeque Sauce<br>
+                    <input type="radio" class="sauce" name="Sauce" value="No Sauce" onchange="getSauce(); total()">No Sauce<br>
+                </div>
+                <div class="selections">
+                    <h3>Cheese</h3>
+                    <input type="radio" class="cheese" name="Cheese" value="Regular" checked onchange="getCheese(); total()">Regular<br>
+                    <input type="radio" class="cheese" name="Cheese" value="No Cheese" onchange="getCheese(); total()">No Cheese<br>
+                    <input type="radio" class="cheese" name="Cheese" value="Extra Cheese" onchange="getCheese(); total()">Extra Cheese<br>
+                </div>
+                <div class="selections">
+                    <h3>Meat</h3>
+                    <input type="checkbox" class="meat" name="Meat" value="Pepperoni" onchange="getMeat(); total()">Pepperoni<br>
+                    <input type="checkbox" class="meat" name="Meat" value="Sausage" onchange="getMeat(); total()">Sausage<br>
+                    <input type="checkbox" class="meat" name="Meat" value="Canadian Bacon" onchange="getMeat(); total()">Canadian Bacon<br>
+                    <input type="checkbox" class="meat" name="Meat" value="Ground Beef" onchange="getMeat(); total()">Ground Beef<br>
+                    <input type="checkbox" class="meat" name="Meat" value="Anchovy" onchange="getMeat(); total()">Anchovy<br>
+                    <input type="checkbox" class="meat" name="Meat" value="Chicken" onchange="getMeat(); total()">Chicken<br>
+                </div>
+                <div class="selections">
+                    <h3>Veggies</h3>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Tomatoes" onchange="getVeggies(); total()">Tomatoes<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Onions" onchange="getVeggies(); total()">Onions<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Olives" onchange="getVeggies(); total()">Olives<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Green Peppers" onchange="getVeggies(); total()">Green Peppers<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Mushrooms" onchange="getVeggies(); total()">Mushrooms<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Pineapple" onchange="getVeggies(); total()">Pineapple<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Spinach" onchange="getVeggies(); total()">Spinach<br>
+                    <input type="checkbox" class="veggies" name="Veggies" value="Jalepeno" onchange="getVeggies(); total()">Jalepeno<br>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <h2>Your Order</h2>
+            <table id="receipt">
+                <tr>
+                    <th>Pizza</th>
+                    <th>Selections</th>
+                    <th>Cost</th>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                    <td id="listSize"></td>
+                    <td id="sizeCost"></td>
+                </tr>
+                <tr>
+                    <td>Crust</td>
+                    <td id="listCrust"></td>
+                    <td id="crustCost"></td>
+                </tr>
+                <tr>
+                    <td>Sauce</td>
+                    <td id="listSauce"></td>
+                    <td>$0</td>  
+                </tr>
+                <tr>
+                    <td>Cheese</td>
+                    <td id="listCheese"></td>
+                    <td id="cheeseCost"></td>
+                </tr>
+                <tr>
+                    <td>Meat</td>
+                    <td id="listMeat"></td>
+                    <td id="meatCost"></td>
+                </tr>
+                <tr>
+                    <td>Veggies</td>
+                    <td id="listVeggies"></td>
+                    <td id="veggiesCost"></td>                  
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td id="total"></td>
+                </tr>
+            </table>
+            <br>
+            <button onclick="myOrder()">Place Order</button>
+        </div>
+            
+        <script src="pizza_script.js"></script>
+
+        <script> getSize(); </script>
+        <script> getCrust(); </script>
+        <script> getSauce(); </script>
+        <script> getCheese(); </script>
+        <script> total();</script>
+
+	</body>
+</html>

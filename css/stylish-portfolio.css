@@ -145,7 +145,7 @@ h6 {
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: transparent;
+    background-color: rgb(33,37,41, 0.7);
   }
   #mainNav .navbar-brand {
     font-size: 1.75em;
@@ -307,18 +307,18 @@ h6 {
 }
 
 .portfolio-item .caption .caption-content {
-  color: #fff;
+  color: transparent;
   margin: auto 2rem 2rem;
 }
 
 .portfolio-item .caption .caption-content h2 {
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
 
 .portfolio-item .caption .caption-content p {
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 @media (min-width: 992px) {
@@ -351,6 +351,10 @@ h6 {
     background-color: rgba(103, 147, 127, 0.9);
     -webkit-clip-path: inset(2rem);
     clip-path: inset(2rem);
+  }
+  .portfolio-item:hover .caption-content {
+    color: #fff;
+    transition: .5s;
   }
 }
 
